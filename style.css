@@ -15,4 +15,80 @@
 
 body {
     height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: sans-serif;
+
+    background-color: #111111;
+}
+
+.wrapperDisplay {
+    max-height: 25%;
+    flex: 1 1 auto;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: #111111;
+}
+
+.display {
+    max-width: 1200px;
+    flex: 1 1 auto;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    overflow: hidden;
+
+    /* background-color: #111111; */
+}
+
+h1 {
+    font-size: 200px;
+    font-weight: 100;
+
+    color: #cacaca;
+
+    /* background-color: lightgreen; */
+}
+
+.wrapperButtons {
+    flex: 1 1 auto;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: #222222;
+}
+
+.buttons {
+    max-width: 1200px;
+    flex: 1 1 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    /* background-color: honeydew; */
+}
+
+.row {
+    flex: 1 1 auto;
+
+    display: flex;
+
+    /* background-color: lightseagreen; */
+}
+
+button {
+    flex: 1 1 0;
+
+    font-size: 36px;
+    font-weight: 900;
+    color: #cacacaf3;
+
+    background-color: #222222;
 }
