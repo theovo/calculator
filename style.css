@@ -26,7 +26,7 @@ body {
 
 .wrapperDisplay {
     max-height: 25%;
-    flex: 1 1 auto;
+    flex: 1 1 0;
 
     display: flex;
     justify-content: center;
@@ -34,30 +34,27 @@ body {
     background-color: #111111;
 }
 
-.display {
+#display {
     max-width: 1200px;
     flex: 1 1 auto;
 
     display: flex;
     justify-content: flex-end;
+    /* aligns display text to the right when minimizing window width to the smallest size */
     align-items: center;
-
     overflow: hidden;
+    /* aligns display text to the right when minimizing window width to the smallest size */
 
-    /* background-color: #111111; */
-}
-
-h1 {
     font-size: 200px;
     font-weight: 100;
-
+    text-align: center;
     color: #cacaca;
 
-    /* background-color: lightgreen; */
+    /* background-color: lightcoral; */
 }
 
 .wrapperButtons {
-    flex: 1 1 auto;
+    flex: 1 1 0;
 
     display: flex;
     justify-content: center;
@@ -65,7 +62,7 @@ h1 {
     background-color: #222222;
 }
 
-.buttons {
+#buttons {
     max-width: 1200px;
     flex: 1 1 auto;
 
@@ -76,7 +73,7 @@ h1 {
 }
 
 .row {
-    flex: 1 1 auto;
+    flex: 1 1 0;
 
     display: flex;
 
