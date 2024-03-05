@@ -40,7 +40,12 @@ function callbackFn(e) {
             display.textContent = "";
             clear = false;
         }
-        display.textContent += e.target.textContent;
+
+        if (display.textContent.length < 7) {
+            display.textContent += e.target.textContent;
+        }
+
+        console.log(display.textContent.length);
     }
 
     else if (e.target.classList == "operator other") {
@@ -63,8 +68,10 @@ function callbackFn(e) {
 
     else if (e.target.classList == "operator equal") {
         operand2 = Number(display.textContent);
+        clear = true;
         console.log(operand1, operator, operand2);
-        display.textContent = operate(operand1, operand2, operator);
+        let string = operate(operand1, operand2, operator).toString();
+        display.textContent = string.slice(0, 7);
     }
 
     else {
