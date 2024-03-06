@@ -20,7 +20,20 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return a / b;
+
+    if (b === 0) {
+        return "LOL";
+    } else {
+        return a / b;
+    }
+}
+
+function convertToExponent(s) {
+    if (s.toString().length > 9) {
+        return s.toExponential(1);
+    } else {
+        return s;
+    }
 }
 
 let display = document.querySelector('#display');
@@ -29,24 +42,39 @@ let operand1;
 let operand2;
 let operator;
 let solution;
-let clear = false;
+let clear = true;
 
 buttons.addEventListener('click', callbackFn);
 
 function callbackFn(e) {
     // console.log(e.target);
 
-    if (e.target.classList == "number") {
+    if (e.target.classList == "number other") {
         if (clear) {
             display.textContent = "";
             clear = false;
         }
 
-        if (display.textContent.length < 7) {
+        if (display.textContent.length < 9) {
             display.textContent += e.target.textContent;
         }
 
         // console.log(display.textContent.length);
+    }
+
+    else if (e.target.classList == "number decimal") {
+        if (clear) {
+            display.textContent = "0";
+            clear = false;
+        }
+
+        if (display.textContent.length < 9) {
+            if (!display.textContent.includes(".")) {
+                display.textContent += e.target.textContent;
+            }
+
+            // console.log(display.textContent.length);
+        }
     }
 
     else if (e.target.classList == "operator other") {
@@ -56,7 +84,8 @@ function callbackFn(e) {
         } else {
             operand2 = Number(display.textContent);
             solution = operate(operand1, operand2, operator);
-            display.textContent = solution.toString().slice(0, 7);
+            display.textContent = convertToExponent(solution);
+
             console.log(operand1, operator, operand2);
 
             operand1 = solution;
@@ -82,12 +111,14 @@ function callbackFn(e) {
     else if (e.target.classList == "operator equality") {
         operand2 = Number(display.textContent);
         solution = operate(operand1, operand2, operator);
-        display.textContent = solution.toString().slice(0, 7);
+        display.textContent = convertToExponent(solution);
+
         console.log(operand1, operator, operand2);
 
         operand1 = undefined;
         operand2 = undefined;
         operator = undefined;
+        solution = undefined;
         clear = true;
     }
 
@@ -97,7 +128,9 @@ function callbackFn(e) {
                 operand1 = undefined;
                 operand2 = undefined;
                 operator = undefined;
-                display.textContent = "";
+                solution = undefined;
+                display.textContent = "0";
+                clear = true;
                 break;
             case "DEL":
                 display.textContent = display.textContent.slice(0, display.textContent.length - 1);

@@ -45,12 +45,12 @@ body {
     overflow: hidden;
     /* aligns display text to the right when minimizing window width to the smallest size */
 
-    font-size: 200px;
+    font-size: 160px;
     font-weight: 100;
     text-align: center;
     color: #cacaca;
 
-    /* background-color: lightcoral; */
+    /* background-color: navy; */
 }
 
 .wrapperButtons {
